@@ -1,10 +1,13 @@
 ---
-import FavIcon from "@/assets/favicon.png";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="header">
-    <img class="header__image" alt="logo de IngTech" src={FavIcon.src} />
-    <a href="https://ingtech.my.canva.site/">Nosotros</a>
-    <a href="en.html">English</a>
-    <a href="">Ingresar</a>
+    <img class="header__image" alt="logo de IngTech" src="favicon.png" />
+    <a href="">{t("nav.home")}</a>
+    <a href="https://ingtech.my.canva.site/">{t("nav.about_us")}</a>
+    <a href="">{t("nav.login")}</a>
 </header>

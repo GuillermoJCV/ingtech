@@ -1,18 +1,22 @@
 ---
 import Jinggle from "@/assets/musica/jinggle.mp3";
-import FavIcon from "@/assets/favicon.png";
 import Footer from "@/components/layout/Footer.astro";
 import Header from "@/components/layout/Header.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/png" href={FavIcon.src} />
+        <link rel="icon" type="image/png" href="favicon.png" />
         <meta name="generator" content={Astro.generator} />
-        <title>IngTech - Soporte para Laptops</title>
+        <title>{t("head.title")}</title>
     </head>
     <body>
         <Header />
