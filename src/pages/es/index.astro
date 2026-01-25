@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import Presentation from "@/components/product/Presentation.astro";
+import Photos from "@/components/product/Photos.astro";
+import Characteristics from "@/components/product/Characteristics.astro";
+import PurchasePolicy from "@/components/product/policies/Purchase.astro";
+import ShippingPolicy from "@/components/product/policies/Shipping.astro";
+import WarrantyPolicy from "@/components/product/policies/Purchase.astro";
+---
+
+<Layout>
+    <Presentation />
+    <Photos />
+    <Characteristics />
+    <section class="politicas">
+        <PurchasePolicy />
+        <ShippingPolicy />
+        <WarrantyPolicy />
+    </section>
+</Layout>

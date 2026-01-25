@@ -1,5 +1,5 @@
 ---
-import Jinggle from "@/assets/musica/jinggle.mp3";
+import { ClientRouter } from "astro:transitions";
 import Footer from "@/components/layout/Footer.astro";
 import Header from "@/components/layout/Header.astro";
 
@@ -17,6 +17,7 @@ const t = useTranslations(lang);
         <link rel="icon" type="image/png" href="favicon.png" />
         <meta name="generator" content={Astro.generator} />
         <title>{t("head.title")}</title>
+        <ClientRouter />
     </head>
     <body>
         <Header />
