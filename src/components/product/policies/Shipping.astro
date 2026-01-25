@@ -1,0 +1,13 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<details>
+    <summary class="politicas--titulo">{t("policies.shippingTitle")}</summary>
+    <article class="politicas-envios--article">
+        {t("policies.shippingText")}
+    </article>
+</details>

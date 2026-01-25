@@ -1,0 +1,27 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="caracteristicas">
+    <h2 class="caracteristicas--titulo">{t("characteristics.title")}</h2>
+    <article>
+        <p>
+            {t("characteristics.materialTitle")}: {
+                t("characteristics.materialText")
+            }
+        </p>
+        <p>
+            {t("characteristics.measurementsTitle")}: {
+                t("characteristics.measurementsText")
+            }
+        </p>
+        <p>
+            {t("characteristics.descriptionTitle")}: {
+                t("characteristics.descriptionText")
+            }
+        </p>
+    </article>
+</section>

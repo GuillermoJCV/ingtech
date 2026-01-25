@@ -1,5 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer>
@@ -57,7 +60,7 @@
         </a>
     </section>
     <section class="footer__copyright">
-        Todos los derechos reservados ️️©️
+        {t("footer.rights")}
     </section>
     <section class="footer__location">
         <p>California U.S.A</p>

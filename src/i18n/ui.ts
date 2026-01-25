@@ -11,7 +11,7 @@ const ui = {
     "nav.about_us": "Nosotros",
     "nav.home": "Inicio",
     "nav.login": "Ingresar",
-    "present.slogan": "El que no soporta no se vende",
+    "present.slogan": "Don't let your sales melt down!",
     "present.readmore": "Leer más",
     "characteristics.title": "Características",
     "characteristics.materialTitle": "Material",
@@ -37,6 +37,7 @@ const ui = {
    Evaluación del producto: El producto es revisado antes de aprobar el reclamo.
 
    Solución ofrecida: Se brinda cambio, reparación o reembolso según el caso `,
+    "footer.rights": "Todos los derechos reservados ️️©️",
   },
   en: {
     "head.title": "IngTech - Laptop Stand",
@@ -69,6 +70,7 @@ const ui = {
        Product evaluation: The product is reviewed before approving the claim.
 
        Offered solution: Exchange, repair or refund is provided depending on the case `,
+    "footer.rights": "All rights reserved ️️©️",
   },
 } as const;
 

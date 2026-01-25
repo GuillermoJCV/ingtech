@@ -1,83 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import SoporteDerecha from "@/assets/producto/soporte_derecha.webp";
-import SoporteEnUso from "@/assets/producto/soporte_en_uso.webp";
+import Layout from "@/layouts/Layout.astro";
+
+import Presentation from "@/components/product/Presentation.astro";
+import Photos from "@/components/product/Photos.astro";
+import Characteristics from "@/components/product/Characteristics.astro";
+import PurchasePolicy from "@/components/product/policies/Purchase.astro";
+import ShippingPolicy from "@/components/product/policies/Shipping.astro";
+import WarrantyPolicy from "@/components/product/policies/Purchase.astro";
 ---
 
 <Layout>
-    <section class="presentacion">
-        <article class="presentacion__articulo">
-            <h1>El espacio que necesitabas justo debajo de tu pantalla</h1>
-            <a href="">Leer más</a>
-        </article>
-        <video loop autoplay muted class="presentacion__video">
-            <source
-                src="https://pub-829b9bdc916e469a9636b8d4339623e3.r2.dev/soporte_para_laptop.mp4"
-            />
-        </video>
-    </section>
-    <section class="fotos">
-        <img alt="angulo izquierdo de la foto" src={SoporteDerecha.src} />
-        <img alt="angulo derecho de la foto" src={SoporteEnUso.src} />
-    </section>
-    <section class="caracteristicas">
-        <h2 class="caracteristicas--titulo">Características</h2>
-        <article>
-            <p>Material: -PLA HD</p>
-            <p>Medidas: 30x 14,5 / 3,5 de grosor</p>
-            <p>
-                Descripción: Soporte para computadores portátiles compacto para
-                computadores desde 13” hasta 16”
-            </p>
-        </article>
-    </section>
+    <Presentation />
+    <Photos />
+    <Characteristics />
     <section class="politicas">
-        <details>
-            <summary class="politicas--titulo"> Políticas de compra </summary>
-            <article class="politicas-compras--article">
-                <p>Disponibilidad: Las compras dependen del stock existente.</p>
-                <p>
-                    Confirmación: El pedido se valida solo después de confirmar
-                    el pago. Responsabilidad del cliente: El cliente debe
-                    proporcionar datos correctos de compra y facturación.
-                </p>
-            </article>
-        </details>
-        <details>
-            <summary class="politicas--titulo"> Políticas de envío </summary>
-            <article class="politicas-envios--article">
-                <p>
-                    Plazos estimados: Los tiempos de entrega son aproximados, no
-                    garantizados.
-                </p>
-                <p>
-                    Costo informado: El costo de envío se muestra antes de
-                    finalizar la compra.
-                </p>
-                <p>
-                    Dirección correcta: El envío se realiza a la dirección
-                    proporcionada por el cliente.
-                </p>
-            </article>
-        </details>
-        <details>
-            <summary class="politicas--titulo">
-                Políticas de productos defectuosos
-            </summary>
-            <article class="politicas-devoluciones--article">
-                <p>
-                    Notificación oportuna: El defecto debe reportarse dentro de
-                    un plazo determinado.
-                </p>
-                <p>
-                    Evaluación del producto: El producto es revisado antes de
-                    aprobar el reclamo.
-                </p>
-                <p>
-                    Solución ofrecida: Se brinda cambio, reparación o reembolso
-                    según el caso
-                </p>
-            </article>
-        </details>
+        <PurchasePolicy />
+        <ShippingPolicy />
+        <WarrantyPolicy />
     </section>
 </Layout>
