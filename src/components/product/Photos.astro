@@ -7,3 +7,19 @@ import SoporteEnUso from "@/assets/producto/soporte_en_uso.webp";
     <img alt="angulo izquierdo de la foto" src={SoporteDerecha.src} />
     <img alt="angulo derecho de la foto" src={SoporteEnUso.src} />
 </section>
+
+<style>
+    .fotos {
+        display: grid;
+        margin-top: 1rem;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        gap: 10%;
+    }
+
+    .fotos > img {
+        max-width: 100%;
+        border-radius: 1rem;
+        aspect-ratio: 389.7/482;
+    }
+</style>

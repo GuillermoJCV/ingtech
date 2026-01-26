@@ -18,3 +18,80 @@ const t = useTranslations(lang);
         />
     </video>
 </section>
+
+<style>
+    .presentacion {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: fit-content;
+    }
+
+    .presentacion__articulo {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .presentacion__video {
+        max-width: 100dvw;
+        height: auto;
+        aspect-ratio: 848/432;
+    }
+
+    .presentacion__articulo > h1 {
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        margin-inline: 5%;
+        font-weight: 600;
+        font-size: clamp(1rem, 5dvw, 2rem);
+        max-width: 75%;
+        background: linear-gradient(
+            135deg,
+            rgba(197, 217, 242, 1) 0%,
+            rgba(37, 60, 93, 1) 25%,
+            rgba(37, 60, 93, 1) 75%,
+            rgba(197, 217, 242, 1) 100%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .presentacion__articulo > a {
+        position: absolute;
+        top: 70%;
+        margin-inline: 5%;
+        font-size: clamp(10px, 5dvw, 40px);
+        text-decoration-line: none;
+        background-color: #0078d4;
+        color: #c5d9f2;
+        padding-block: 0.5rem;
+        padding-inline: 1.5rem;
+    }
+
+    .presentacion__imagen {
+        max-width: 100dvw;
+    }
+
+    .presentacion::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            180deg,
+            rgba(3, 16, 30, 1) 0%,
+            rgba(255, 255, 255, 0) 10%,
+            rgba(255, 255, 255, 0) 90%,
+            rgba(3, 16, 30, 1) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+</style>

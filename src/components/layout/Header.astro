@@ -7,7 +7,10 @@ const t = useTranslations(lang);
 
 const changeLangText = lang !== defaultLang ? "Spanish" : "English";
 const changeLangURI = lang !== defaultLang ? "es" : "en";
-const url = lang === defaultLang ? "https://ingtech.my.canva.site/" : "https://ingtech.my.canva.site/english"
+const url =
+    lang === defaultLang
+        ? "https://ingtech.my.canva.site/"
+        : "https://ingtech.my.canva.site/english";
 ---
 
 <header class="header">
@@ -16,3 +19,26 @@ const url = lang === defaultLang ? "https://ingtech.my.canva.site/" : "https://i
     <a href=`/${changeLangURI}`>{changeLangText}</a>
     <a href="">{t("nav.login")}</a>
 </header>
+
+<style>
+    .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    .header__image {
+        width: clamp(50px, 50dvw, 350px);
+        height: auto;
+        aspect-ratio: 350/106;
+    }
+
+    .header > a {
+        font-size: clamp(0.5rem, 2dvw, 1.3rem);
+        color: var(--text-color);
+        text-decoration-line: none;
+    }
+</style>
