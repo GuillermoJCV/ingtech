@@ -2,7 +2,14 @@
 import { ClientRouter } from "astro:transitions";
 import Footer from "@/components/layout/Footer.astro";
 import Header from "@/components/layout/Header.astro";
-import Carrusel from "@/components/product/carrusel/Carrusel.astro";
+import Carrusel from "@/components/ui/carrusel/Carrusel.astro";
+
+import SoporteIndividual from "@/assets/producto/soporte_individual.webp";
+import SoporteDoble from "@/assets/producto/soporte_derecha.webp";
+import SoporteEnUso from "@/assets/producto/soporte_en_uso.webp";
+import SoporteIzquierda from "@/assets/producto/soporte_izquierda.png";
+import SoporteDerecha from "@/assets/producto/soporte_derecha.png";
+import SoporteAtras from "@/assets/producto/soporte_atras.png";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
@@ -26,7 +33,16 @@ const t = useTranslations(lang);
     </head>
     <body>
         <Header />
-        <!-- <Carrusel /> -->
+        <!-- <Carrusel
+            images={[
+                SoporteIndividual,
+                SoporteDoble,
+                SoporteEnUso,
+                // SoporteAtras,
+                // SoporteDerecha,
+                // SoporteIzquierda,
+            ]}
+        /> -->
         <slot />
         <Footer />
     </body>
