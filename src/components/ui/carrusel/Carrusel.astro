@@ -1,0 +1,159 @@
+---
+import LeftArrow from "@/components/icons/LeftArrow.astro";
+import RightArrow from "@/components/icons/RightArrow.astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  images: ImageMetadata[]
+}
+const { images } = Astro.props
+---
+
+<section class="carrusel">
+    <LeftArrow
+        id="left-button"
+        class:list={["icon", "left_icon", "icon-disabled"]}
+    />
+    {
+    images.map((image, index) => (
+    <picture>
+        <picture class="carrusel__picture">
+            <img class="carrusel__picture__image" data-id={index} src={image.src} alt=`imagen del producto número ${index}` />
+        </picture>
+    </picture>
+    ))
+    }
+    <RightArrow id="right-button" class:list={["icon", "right_icon"]} />
+    <script>
+        const unidadDeLeft = "dvw"
+        const leftButton = document.getElementById("left-button");
+        const rightButton = document.getElementById("right-button");
+        const picturesNode = document.querySelectorAll("picture.carrusel__picture");
+        const pictures = Array.from(picturesNode) as HTMLPictureElement[];
+
+        console.log(pictures)
+
+
+        const buttonsExist = leftButton && rightButton
+        const pictureExist = pictures.length != 0
+        const elementsArePictures = pictures[0] instanceof HTMLPictureElement
+
+        if (buttonsExist && pictureExist && elementsArePictures) {
+            pictures.forEach(picture => picture.style.left = "0" + unidadDeLeft)
+
+            rightButton.addEventListener("click", () => {
+                // Si el botón está deshabilitado, skippear evento
+                if (rightButton.classList.contains("icon-disabled")) return;
+
+                // Primero obtengo la propiedad left
+                //  Si es 0
+                //    Disminuir 100
+                //    habilitar botón izquierdo
+                //  Si es penultima_imagen * -100
+                //    Disminuir 100
+                //    deshabilitar botón derecho
+                //  Si no
+                //    Disminuir 100
+                pictures.forEach((picture) => {
+                    const leftProp = Number(picture.style.left.replace(unidadDeLeft, ""))
+
+
+                    if(leftProp === 0) {
+                      picture.style.left = (leftProp - 100) + unidadDeLeft
+                      leftButton.classList.remove("icon-disabled");
+                    } else if(leftProp === (pictures.length - 2) * -100) {
+                      picture.style.left = (leftProp - 100) + unidadDeLeft
+                      rightButton.classList.add("icon-disabled");
+                    } else {
+                      picture.style.left = (leftProp - 100) + unidadDeLeft
+                    }
+                });
+            });
+
+            leftButton.addEventListener("click", () => {
+                if (leftButton.classList.contains("icon-disabled")) return;
+
+                // Obtengo la propiedad left
+                //  Si es ultima_imagen * -100
+                //    Aumentar 100
+                //    habilitar el botón derecho
+                //  Si es -100
+                //    Aumentar 100
+                //    deshabilitar el botón izquierdo
+                //  Si no
+                //    Aumentar 100
+                pictures.forEach((picture) => {
+                    const leftProp = Number(picture.style.left.replace(unidadDeLeft, ""))
+
+                    if(leftProp === (pictures.length - 1) * -100) {
+                      picture.style.left = (leftProp + 100) + unidadDeLeft
+                      rightButton.classList.remove("icon-disabled");
+                    } else if(leftProp === -100) {
+                      picture.style.left = (leftProp + 100) + unidadDeLeft
+                      leftButton.classList.add("icon-disabled");
+                    } else {
+                      picture.style.left = (leftProp + 100) + unidadDeLeft
+                    }
+                });
+            });
+        }
+    </script>
+</section>
+
+<style>
+    .carrusel {
+        margin-block: 1rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: clamp(10rem, 50dvh, 30rem);
+    }
+
+    .carrusel__picture {
+        position: relative;
+        left: 0%;
+        display: flex;
+        justify-content: center;
+        width: 100dvw;
+        transition: left 300ms ease-in-out;
+    }
+
+    .carrusel__picture__image {
+        max-height: clamp(10rem, 50dvh, 30rem);
+        max-width: 100dvw;
+        user-select: none;
+        border-radius: 2rem;
+    }
+
+    .icon {
+        position: absolute;
+        width: clamp(1rem, 10dvw, 4rem);
+        height: clamp(1rem, 10dvw, 4rem);
+        top: 40%;
+        z-index: 10;
+        border-radius: 2rem;
+        background: #FFFFFF22;
+        transition: scale 100ms ease-out;
+    }
+
+    .left_icon {
+        left: 5%;
+    }
+
+    .right_icon {
+        right: 5%;
+    }
+
+    .icon-disabled {
+        filter: opacity(0.5);
+    }
+
+    .icon:hover {
+        color: #555555;
+    }
+    .icon:active {
+        scale: 0.8;
+    }
+</style>
